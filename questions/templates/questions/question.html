@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {background-color: ivory;}
+        * {font-family: 'Roboto', sans-serif;}
+        .question {text-align: center; font-size: 50px;}
+        .answers li {font-size: 40px; margin: 15px 50px;}
+        .answers li.correct {color: #57bd23; font-weight: 800;}
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <h1 class="question">{{ question.text}}</h1>
+    <ul class="answers">
+        {% for answer in question.answers %}
+        <li>{{ answer.text }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
