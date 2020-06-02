@@ -1,22 +1,88 @@
 body {
-    background-color: ivory;
+  background-color: #fffef4;
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .question {
-    text-align: center;
-    font-size: 50px;
+  text-align: center;
+  font-size: 50px;
+  margin: 50px 0;
 }
 
 .answers li {
-    font-size: 40px;
-    margin: 15px 50px;
+  font-size: 40px;
+  margin: 15px 50px;
+  list-style: none;
 }
 
 .answers li.correct {
-    color: #57bd23;
-    font-weight: 800;
+  color: #57bd23 !important;
+  font-weight: 800;
+}
+
+.answers li.selected {
+  color: red;
+  font-weight: 800;
+}
+
+.questions {
+  display: block;
+  padding: 0;
+  border: 1px solid #eaeaea
+}
+
+.questions li {
+  display: block;
+  padding: 20px;
+}
+
+li.unstyled {
+  list-style: none;
+}
+
+.questions li:nth-child(odd) {
+  background: white;
+}
+
+.questions li:nth-child(even) {
+  background: #eaeaea;
+}
+
+.questions .date {
+  margin-right: 10px;
+}
+
+button[type='submit'].answer-button {
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.error {
+  font-size: 20px;
+  color: red;
+  text-align: center;
+}
+
+.percent {
+  font-size: 20px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.back {
+  display: block;
+  font-size: 20px;
+  text-align: center;
+}
+
+.menu {
+  padding: 10px;
+  background-color: white;
+  margin-bottom: 10px;
 }

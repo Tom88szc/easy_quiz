@@ -1,18 +1,11 @@
+{% extends "questions/base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href="{% static 'questions/style.css' %}" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-</head>
-<body>
-    <h1 class="question">{{ question.text}}</h1>
-    <ul class="answers">
-        {% for answer in question.answers %}
-        <li {% if answer.correct %} class="correct" {% endif %}> {{ answer.text}} </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+
+{% block content %}
+<h1 class="question">{{ question.text }}</h1>
+<ul class="answers">
+  {% for answer in question.answer_set.all %}
+  <li {% if answer.correct %} class="correct" {% endif %}>{{ answer.text }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}

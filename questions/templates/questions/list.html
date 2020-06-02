@@ -1,0 +1,13 @@
+{% extends "questions/base.html" %}
+{% load static%}
+
+{% block content %}
+  <ul class="questions">
+    {% for q in questions  %}
+      <li>
+        <span class="date">{{ q.created | date:"d.m.Y" }}</span>
+        <a href="{% url 'questions:question' q.id %}">{{ q.text }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
