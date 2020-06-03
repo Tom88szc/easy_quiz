@@ -10,6 +10,17 @@ class Question(models.Model):
     def __str__(self):
         return self.text
 
+    @property
+    def correct_percent(self):
+        answers = self.answer_set.all()
+        total = sum(a.answered_count for a in answers)
+
+        if total > 0:
+            correct = sum(a.answered_count for a in answers if a.correct)
+            return round(correct / total * 100, 2)
+        else:
+            return None
+
 
 class Answer(models.Model):
     text = models.CharField(max_length=200)

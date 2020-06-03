@@ -2,10 +2,18 @@
 {% load static %}
 
 {% block content %}
-<h1 class="question">{{ question.text }}</h1>
-<ul class="answers">
-  {% for answer in question.answer_set.all %}
-  <li {% if answer.correct %} class="correct" {% endif %}>{{ answer.text }}</li>
-  {% endfor %}
-</ul>
+<form action="{% url 'questions:answer' question.id %}" method="POST">
+  {% csrf_token %}
+  <h1 class="question">{{ question.text }}</h1>
+  <div class="error">{{ error }}</div>
+  <ul class="answers">
+    {% for answer in question.answer_set.all %}
+    <li class="unstyled">
+      <input type="radio" name="answer" value="{{ answer.id }}" id="answer-{{ forloop.counter }}">
+      <label for="answer-{{ forloop.counter }}">{{ answer.text }}</label>
+    </li>
+    {% endfor %}
+  </ul>
+    <button class="answer-button" type="submit">Odpowiedz</button>
+</form>
 {% endblock %}

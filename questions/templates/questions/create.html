@@ -1,0 +1,9 @@
+{% extends "questions/base.html" %}
+{% load static %}
+
+{% block content %}
+<form action="{% url 'questions:create' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+</form>
+{% endblock %}
